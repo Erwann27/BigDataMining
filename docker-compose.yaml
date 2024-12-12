@@ -29,8 +29,19 @@ services:
       - "8443:8443"
     volumes:
       - .:/xml
-      - exist:/data/db
+      - existdbdata:/data/db
+
+  neo4j:
+    image: neo4j:latest
+    container_name: neo4j
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+
+    volumes:
+      - neo4jdata:/logs
 
 volumes:
   mongodbdata:
-  exist:
+  existdbdata:
+  neo4jdata:
