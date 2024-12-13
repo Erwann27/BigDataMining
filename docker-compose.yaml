@@ -39,9 +39,33 @@ services:
       - "7687:7687"
 
     volumes:
-      - neo4jdata:/logs
+      - neo4jdata:/data
+
+  postgresXML:
+    container_name: postgresXML
+    image: postgres:alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgresxmldata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=root
+
+  postgresJSON:
+    container_name: postgresJSON
+    image: postgres:alpine
+    ports:
+      - "5433:5433"
+    volumes:
+      - postgresjsondata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=root
 
 volumes:
   mongodbdata:
   existdbdata:
   neo4jdata:
+  postgresxmldata:
+  postgresjsondata:
