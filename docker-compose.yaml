@@ -22,7 +22,7 @@ services:
       ME_CONFIG_BASICAUTH: false
 
   exist:
-    image: existdb/existdb:release
+    image: existdb/existdb:5.0.0-RC8
     container_name: exist
     ports:
       - "8080:8080"
